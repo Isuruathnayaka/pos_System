@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple POS System</title>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <style>
+        body {
+            background-color: #f8f9fa;
+        }
+        .section {
+            display: none;
+            margin-top: 20px;
+        }
+        .navbar {
+            display: none;
+        }
+        .pointer {
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+<!-- ====================== LOGIN SECTION ====================== -->
+<div class="container mt-5" id="login-section">
+    <div class="row justify-content-center">
+        <div class="col-md-4">
+            <div class="card shadow-sm">
+                <div class="card-body">
+                    <h3 class="text-center mb-4">POS Login</h3>
+                    <div class="mb-3">
+                        <label for="username" class="form-label">Username</label>
+                        <input type="text" id="username" class="form-control" placeholder="Enter username">
+                    </div>
+                    <div class="mb-3">
+                        <label for="password" class="form-label">Password</label>
+                        <input type="password" id="password" class="form-control" placeholder="Enter password">
+                    </div>
+                    <button class="btn btn-primary w-100" id="loginBtn">Login</button>
+                    <div id="loginError" class="text-danger mt-2 text-center" style="display:none;">Invalid username or password</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- ====================== NAVBAR ====================== -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary" id="main-navbar">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="#">POS Dashboard</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <a class="nav-link pointer" id="nav-customer">Customers</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link pointer" id="nav-item">Items</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link pointer" id="nav-order">Orders</a>
+                </li>
+            </ul>
+            <button class="btn btn-danger" id="logoutBtn">Logout</button>
+        </div>
+    </div>
+</nav>
+
+<!-- ====================== DASHBOARD / HOME ====================== -->
+<div class="container section" id="dashboard-section">
+    <h2>Welcome to POS Dashboard</h2>
+    <p>Use the navigation bar to manage customers, items, and orders.</p>
+</div>
+
+<!-- ====================== CUSTOMER SECTION ====================== -->
+<div class="container section" id="customer-section">
+    <h2>Customer Management</h2>
+    <button class="btn btn-success mb-3" id="addCustomerBtn">Add Customer</button>
+    <table class="table table-bordered table-striped" id="customerTable">
+        <thead class="table-primary">
+        <tr>
+            <th>#</th>
+            <th>Name</th>
+            <th>Contact</th>
+            <th>Address</th>
+        </tr>
+        </thead>
+        <tbody>
+        <!-- Customer rows go here dynamically -->
+        </tbody>
+    </table>
+</div>
+
+<!-- ====================== ITEM SECTION ====================== -->
+<div class="container section" id="item-section">
+    <h2>Item Management</h2>
+    <button class="btn btn-success mb-3" id="addItemBtn">Add Item</button>
+    <table class="table table-bordered table-striped" id="itemTable">
+        <thead class="table-primary">
+        <tr>
+            <th>#</th>
+            <th>Item Code</th>
+            <th>Name</th>
+            <th>Price</th>
+            <th>Quantity</th>
+            <th>Actions</th>
+        </tr>
+        </thead>
+        <tbody>
+        <!-- Item rows go here dynamically -->
+        </tbody>
+    </table>
+</div>
+
+<!-- ====================== ORDER SECTION ====================== -->
+<div class="container section" id="order-section">
+    <h2>Order Management</h2>
+    <form id="orderForm">
+        <div class="row mb-3">
+            <div class="col-md-6">
+                <label for="selectCustomer" class="form-label">Select Customer</label>
+                <select id="selectCustomer" class="form-select">
+                    <option value="">-- Select Customer --</option>
+                </select>
+            </div>
+            <div class="col-md-6">
+                <label for="selectItem" class="form-label">Select Item</label>
+                <select id="selectItem" class="form-select">
+                    <option value="">-- Select Item --</option>
+                </select>
+            </div>
+        </div>
+        <div class="row mb-3">
+            <div class="col-md-6">
+                <label for="itemQty" class="form-label">Quantity</label>
+                <input type="number" id="itemQty" class="form-control" min="1" value="1">
+            </div>
+            <div class="col-md-6 d-flex align-items-end">
+                <button type="button" class="btn btn-primary w-100" id="addOrderItemBtn">Add to Order</button>
+            </div>
+        </div>
+    </form>
+
+    <h4>Order Items</h4>
+    <table class="table table-bordered table-striped" id="orderTable">
+        <thead class="table-warning">
+        <tr>
+            <th>#</th>
+            <th>Item Name</th>
+            <th>Price</th>
+            <th>Quantity</th>
+            <th>Subtotal</th>
+            <th>Actions</th>
+        </tr>
+        </thead>
+        <tbody>
+
+        </tbody>
+    </table>
+    <h5 class="text-end">Grand Total: $<span id="grandTotal">0.00</span></h5>
+    <button class="btn btn-success" id="placeOrderBtn">Place Order</button>
+
+    <h4 class="mt-5">Order History</h4>
+    <table class="table table-bordered table-striped" id="orderHistoryTable">
+        <thead class="table-secondary">
+        <tr>
+            <th>Order ID</th>
+            <th>Customer</th>
+            <th>Items</th>
+            <th>Total</th>
+            <th>Date</th>
+        </tr>
+        </thead>
+        <tbody>
+        <!-- Orders go here dynamically -->
+        </tbody>
+    </table>
+</div>
+
+
+<script src="/js/Controller/login.js">
+</script>
+</body>
+</html>
