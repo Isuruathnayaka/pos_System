@@ -1,0 +1,86 @@
+/* Full page styling */
+body {
+    background: linear-gradient(135deg, #0044cc, #cffffa); /* blue-red gradient */
+    font-family: 'Segoe UI', Arial, sans-serif;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0;
+}
+
+/* Login container (centered box) */
+.login-container {
+    width: 100%;
+    max-width: 400px;
+    padding: 15px;
+}
+
+/* White card */
+.login-box {
+    background-color: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+    padding: 30px;
+    text-align: center;
+}
+
+/* Heading */
+.login-box h1 {
+    color: #0044cc;
+    font-size: 24px;
+    margin-bottom: 25px;
+}
+
+/* Labels */
+label {
+    color: #003366;
+    font-weight: bold;
+    text-align: left;
+    display: block;
+    margin-bottom: 5px;
+}
+
+/* Inputs */
+.form-control {
+    border: 2px solid #0044cc;
+    border-radius: 6px;
+    padding: 10px;
+    font-size: 14px;
+    transition: all 0.3s ease;
+}
+
+/* Focus effect */
+.form-control:focus {
+    border-color: #ff3333;
+    box-shadow: 0 0 6px rgba(255, 51, 51, 0.4);
+}
+
+/* Login button */
+.btn-login {
+    background-color: #0044cc;
+    color: #fff;
+    font-weight: bold;
+    width: 100%;
+    border-radius: 6px;
+    padding: 10px;
+    margin-top: 15px;
+    border: none;
+    transition: all 0.3s ease;
+}
+
+/* Hover button */
+.btn-login:hover {
+    background-color: #ff3333;
+    transform: scale(1.05);
+}
+
+/* Responsive adjustments */
+@media (max-width: 480px) {
+    .login-box {
+        padding: 20px;
+    }
+    .login-box h1 {
+        font-size: 20px;
+    }
+}
