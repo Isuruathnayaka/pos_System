@@ -112,6 +112,7 @@
 
     <!-- Customer Table -->
     <table class="table table-bordered table-striped" id="customerTable">
+
         <thead class="table-primary">
         <tr>
             <th>#</th>
@@ -130,7 +131,32 @@
 <!-- ====================== ITEM SECTION ====================== -->
 <div class="container section" id="item-section">
     <h2>Item Management</h2>
-    <button class="btn btn-success mb-3" id="addItemBtn">Add Item</button>
+    <div class="card p-3 mb-3" id="itemForm">
+        <div class="row g-3">
+            <div class="col-md-4">
+                <label for="itemCode" class="form-label">Item Code</label>
+                <input type="text" class="form-control" id="itemCode" placeholder="item code">
+            </div>
+            <div class="col-md-4">
+                <label for="name" class="form-label">Name</label>
+                <input type="text" class="form-control" id="name" placeholder="name">
+            </div>
+            <div class="col-md-4">
+                <label for="price" class="form-label">Price</label>
+                <input type="text" class="form-control" id="price" placeholder="price">
+            </div>
+            <div class="col-md-4">
+                <label for="quantity" class="form-label">Quantity</label>
+                <input type="text" class="form-control" id="quantity" placeholder="quantity">
+            </div>
+            <br>
+        </div>
+        <div class="mt-3 text-end">
+            <button class="btn btn-primary" id="saveItemBtn">Save Item</button>
+            <button class="btn btn-warning d-none" id="updateItemBtn">Update</button>
+            <button class="btn btn-danger d-none" id="deleteItemBtn">Delete</button>
+        </div>
+        <br>
     <table class="table table-bordered table-striped" id="itemTable">
         <thead class="table-primary">
         <tr>
@@ -139,7 +165,6 @@
             <th>Name</th>
             <th>Price</th>
             <th>Quantity</th>
-            <th>Actions</th>
         </tr>
         </thead>
         <tbody>
@@ -216,7 +241,7 @@
 
 <script src="/js/Controller/login.js"></script>
 <script src="/js/Controller/nav.js"></script>
-<script src="/js/Controller/CustomerController.js"></script>
-
+    <script type="module" src="/js/Controller/CustomerController.js"></script>
+</div>
 </body>
 </html>
