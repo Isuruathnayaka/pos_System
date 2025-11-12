@@ -1,5 +1,5 @@
 // main.js
-import CustomerController from "./Controller/CustomerController";
+import CustomerController from "../js/controller/CustomerController.js";
 
 document.addEventListener("DOMContentLoaded", () => {
     new CustomerController();

@@ -12,6 +12,7 @@
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
     <style>
         body {
             background-color: #f8f9fa;
@@ -29,6 +30,7 @@
     </style>
 </head>
 <body>
+
 <!-- ====================== LOGIN SECTION ====================== -->
 <div class="container mt-5" id="login-section">
     <div class="row justify-content-center">
@@ -86,7 +88,6 @@
 <div class="container section" id="customer-section">
     <h2>Customer Management</h2>
 
-    <!-- Add Customer Form -->
     <div class="card p-3 mb-3" id="customerForm">
         <div class="row g-3">
             <div class="col-md-4">
@@ -110,9 +111,7 @@
         </div>
     </div>
 
-    <!-- Customer Table -->
     <table class="table table-bordered table-striped" id="customerTable">
-
         <thead class="table-primary">
         <tr>
             <th>#</th>
@@ -121,16 +120,14 @@
             <th>Address</th>
         </tr>
         </thead>
-        <tbody>
-        <!-- Customer rows go here dynamically -->
-        </tbody>
+        <tbody></tbody>
     </table>
 </div>
-
 
 <!-- ====================== ITEM SECTION ====================== -->
 <div class="container section" id="item-section">
     <h2>Item Management</h2>
+
     <div class="card p-3 mb-3" id="itemForm">
         <div class="row g-3">
             <div class="col-md-4">
@@ -149,33 +146,34 @@
                 <label for="quantity" class="form-label">Quantity</label>
                 <input type="text" class="form-control" id="quantity" placeholder="quantity">
             </div>
-            <br>
         </div>
+
         <div class="mt-3 text-end">
             <button class="btn btn-primary" id="saveItemBtn">Save Item</button>
             <button class="btn btn-warning d-none" id="updateItemBtn">Update</button>
             <button class="btn btn-danger d-none" id="deleteItemBtn">Delete</button>
         </div>
+
         <br>
-    <table class="table table-bordered table-striped" id="itemTable">
-        <thead class="table-primary">
-        <tr>
-            <th>#</th>
-            <th>Item Code</th>
-            <th>Name</th>
-            <th>Price</th>
-            <th>Quantity</th>
-        </tr>
-        </thead>
-        <tbody>
-        <!-- Item rows go here dynamically -->
-        </tbody>
-    </table>
-</div>
+        <table class="table table-bordered table-striped" id="itemTable">
+            <thead class="table-primary">
+            <tr>
+                <th>#</th>
+                <th>Item Code</th>
+                <th>Name</th>
+                <th>Price</th>
+                <th>Quantity</th>
+            </tr>
+            </thead>
+            <tbody></tbody>
+        </table>
+    </div>
+</div> <!-- ✅ properly closed item-section -->
 
 <!-- ====================== ORDER SECTION ====================== -->
 <div class="container section" id="order-section">
     <h2>Order Management</h2>
+
     <form id="orderForm">
         <div class="row mb-3">
             <div class="col-md-6">
@@ -191,6 +189,7 @@
                 </select>
             </div>
         </div>
+
         <div class="row mb-3">
             <div class="col-md-6">
                 <label for="itemQty" class="form-label">Quantity</label>
@@ -214,10 +213,9 @@
             <th>Actions</th>
         </tr>
         </thead>
-        <tbody>
-
-        </tbody>
+        <tbody></tbody>
     </table>
+
     <h5 class="text-end">Grand Total: $<span id="grandTotal">0.00</span></h5>
     <button class="btn btn-success" id="placeOrderBtn">Place Order</button>
 
@@ -232,16 +230,29 @@
             <th>Date</th>
         </tr>
         </thead>
-        <tbody>
-        <!-- Orders go here dynamically -->
-        </tbody>
+        <tbody></tbody>
     </table>
 </div>
 
+<!-- ====================== SCRIPTS ====================== -->
+<script src="/lib/jquery-3.7.1.min.js"></script>
+<script src="/js/controller/login.js"></script>
+<script src="/js/controller/nav.js"></script>
 
-<script src="/js/Controller/login.js"></script>
-<script src="/js/Controller/nav.js"></script>
-    <script type="module" src="/js/Controller/CustomerController.js"></script>
-</div>
+<script src="/js/dto/CustomerDTO.js"></script>
+<script src="./js/model/CustomerModel.js"></script>
+<script src="./js/controller/CustomerController.js"></script>
+
+<script src="/js/dto/ItemDTO.js"></script>
+<script src="/js/model/ItemModel.js"></script>
+<script src="/js/controller/ItemController.js"></script>
+
+
+
+
+
+
+
+
 </body>
 </html>

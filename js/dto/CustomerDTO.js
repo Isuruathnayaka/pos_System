@@ -1,5 +1,5 @@
 // dto/CustomerDTO.js
-export default class CustomerDTO {
+ class CustomerDTO {
     constructor(id, name, contact, address) {
         this.id = id;
         this.name = name;
