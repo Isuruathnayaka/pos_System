@@ -31,7 +31,7 @@
 </head>
 <body>
 
-<!-- ====================== LOGIN SECTION ====================== -->
+
 <div class="container mt-5" id="login-section">
     <div class="row justify-content-center">
         <div class="col-md-4">
@@ -54,7 +54,7 @@
     </div>
 </div>
 
-<!-- ====================== NAVBAR ====================== -->
+
 <nav class="navbar navbar-expand-lg navbar-dark bg-primary" id="main-navbar">
     <div class="container-fluid">
         <a class="navbar-brand" href="#">POS Dashboard</a>
@@ -78,13 +78,13 @@
     </div>
 </nav>
 
-<!-- ====================== DASHBOARD / HOME ====================== -->
+
 <div class="container section" id="dashboard-section">
     <h2>Welcome to POS Dashboard</h2>
     <p>Use the navigation bar to manage customers, items, and orders.</p>
 </div>
 
-<!-- ====================== CUSTOMER SECTION ====================== -->
+
 <div class="container section" id="customer-section">
     <h2>Customer Management</h2>
 
@@ -124,7 +124,7 @@
     </table>
 </div>
 
-<!-- ====================== ITEM SECTION ====================== -->
+
 <div class="container section" id="item-section">
     <h2>Item Management</h2>
 
@@ -168,9 +168,9 @@
             <tbody></tbody>
         </table>
     </div>
-</div> <!-- ✅ properly closed item-section -->
+</div>
 
-<!-- ====================== ORDER SECTION ====================== -->
+
 <div class="container section" id="order-section">
     <h2>Order Management</h2>
 
@@ -197,6 +197,8 @@
             </div>
             <div class="col-md-6 d-flex align-items-end">
                 <button type="button" class="btn btn-primary w-100" id="addOrderItemBtn">Add to Order</button>
+                <button type="button" class="btn btn-warning w-100 ms-2 d-none" id="updateOrderItemBtn">Update Item</button>
+                <button type="button" class="btn btn-danger w-100 ms-2 d-none" id="deleteOrderItemBtn">Delete Item</button>
             </div>
         </div>
     </form>
@@ -217,7 +219,11 @@
     </table>
 
     <h5 class="text-end">Grand Total: $<span id="grandTotal">0.00</span></h5>
-    <button class="btn btn-success" id="placeOrderBtn">Place Order</button>
+    <div class="d-flex justify-content-end mb-3">
+        <button class="btn btn-success me-2" id="placeOrderBtn">Place Order</button>
+        <button class="btn btn-danger me-2 d-none" id="deleteOrderBtn">Delete Order</button>
+        <button class="btn btn-warning d-none" id="updateOrderBtn">Update Order</button>
+    </div>
 
     <h4 class="mt-5">Order History</h4>
     <table class="table table-bordered table-striped" id="orderHistoryTable">
@@ -228,24 +234,37 @@
             <th>Items</th>
             <th>Total</th>
             <th>Date</th>
+            <th>Actions</th>
         </tr>
         </thead>
         <tbody></tbody>
     </table>
 </div>
 
-<!-- ====================== SCRIPTS ====================== -->
+
+
+
 <script src="/lib/jquery-3.7.1.min.js"></script>
 <script src="/js/controller/login.js"></script>
 <script src="/js/controller/nav.js"></script>
 
-<script src="/js/dto/CustomerDTO.js"></script>
-<script src="./js/model/CustomerModel.js"></script>
-<script src="./js/controller/CustomerController.js"></script>
 
-<script src="/js/dto/ItemDTO.js"></script>
-<script src="/js/model/ItemModel.js"></script>
-<script src="/js/controller/ItemController.js"></script>
+<script src="./js/dto/CustomerDTO.js"></script>
+<script src="./js/dto/ItemDTO.js"></script>
+<script src="./js/dto/OrderDTO.js"></script>
+
+
+<script src="./js/model/CustomerModel.js"></script>
+<script src="./js/model/ItemModel.js"></script>
+<script src="./js/model/OrderModel.js"></script>
+
+
+<script src="./js/controller/CustomerController.js"></script>
+<script src="./js/controller/ItemController.js"></script>
+<script src="./js/controller/OrderController.js"></script>
+
+
+
 
 
 

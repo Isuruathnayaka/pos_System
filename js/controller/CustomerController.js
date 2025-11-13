@@ -1,4 +1,4 @@
-// Controller (Connects UI and Model)
+
 const model = new CustomerModel();
 
 const nameField = document.getElementById("customerName");
@@ -12,7 +12,7 @@ const tableBody = document.querySelector("#customerTable tbody");
 
 let selectedId = null;
 
-// ================== SAVE CUSTOMER ==================
+//SAVE CUSTOMER
 saveBtn.addEventListener("click", function () {
     const name = nameField.value.trim();
     const contact = contactField.value.trim();
@@ -50,7 +50,7 @@ saveBtn.addEventListener("click", function () {
 });
 
 
-// ================== UPDATE CUSTOMER ==================
+//UPDATE CUSTOMER
 updateBtn.addEventListener("click", function () {
     if (selectedId === null) return;
 
@@ -97,7 +97,7 @@ updateBtn.addEventListener("click", function () {
 });
 
 
-// ================== DELETE CUSTOMER ==================
+//DELETE CUSTOMER
 deleteBtn.addEventListener("click", function () {
     if (selectedId === null) return;
 
@@ -131,7 +131,7 @@ deleteBtn.addEventListener("click", function () {
 });
 
 
-// ================== TABLE RENDERING ==================
+//TABLE RENDERING
 function renderTable() {
     tableBody.innerHTML = "";
 
@@ -152,7 +152,7 @@ function renderTable() {
     });
 }
 
-// ================== ON ROW CLICK ==================
+//ON ROW CLICK
 function onRowClick(customer) {
     selectedId = customer.id;
     nameField.value = customer.name;
@@ -164,7 +164,7 @@ function onRowClick(customer) {
     deleteBtn.classList.remove("d-none");
 }
 
-// ================== FORM HELPERS ==================
+//FORM HELPERS
 function clearFields() {
     nameField.value = "";
     contactField.value = "";

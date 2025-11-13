@@ -1,21 +1,19 @@
-// Model (Handles data storage & logic)
-class CustomerModel {
-    constructor() {
-        this.customers = [];
-        this.nextId = 1;
-    }
+let customerArray = [];
+let customerIdCounter = 1;
 
+class CustomerModel {
     saveCustomer(name, contact, address) {
-        const customer = new CustomerDTO(this.nextId++, name, contact, address);
-        this.customers.push(customer);
+        const customer = { id: customerIdCounter++, name, contact, address };
+        customerArray.push(customer);
+        return customer;
     }
 
     getAllCustomers() {
-        return this.customers;
+        return customerArray;
     }
 
     updateCustomer(id, name, contact, address) {
-        const customer = this.customers.find(c => c.id === id);
+        const customer = customerArray.find(c => c.id === id);
         if (customer) {
             customer.name = name;
             customer.contact = contact;
@@ -24,6 +22,6 @@ class CustomerModel {
     }
 
     deleteCustomer(id) {
-        this.customers = this.customers.filter(c => c.id !== id);
+        customerArray = customerArray.filter(c => c.id !== id);
     }
 }

@@ -1,4 +1,4 @@
-// dto/CustomerDTO.js
+
  class CustomerDTO {
     constructor(id, name, contact, address) {
         this.id = id;

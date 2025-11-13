@@ -1,4 +1,4 @@
-// js/dto/ItemDTO.js
+
 class ItemDTO {
     constructor(id, code, name, price, quantity) {
         this.id = id;

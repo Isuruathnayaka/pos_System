@@ -46,7 +46,7 @@ $(document).ready(function () {
         $("#deleteItemBtn").removeClass("d-none");
     }
 
-    // ---------------- Save ----------------
+    //Save
     $("#saveItemBtn").click(function () {
         const code = $("#itemCode").val().trim();
         const name = $("#name").val().trim();
@@ -75,7 +75,7 @@ $(document).ready(function () {
         });
     });
 
-    // ---------------- Update ----------------
+    //Update
     $("#updateItemBtn").click(function () {
         if (selectedItemId === null) return;
 
@@ -124,7 +124,7 @@ $(document).ready(function () {
         });
     });
 
-    // ---------------- Delete ----------------
+    //Delete
     $("#deleteItemBtn").click(function () {
         if (selectedItemId === null) return;
 

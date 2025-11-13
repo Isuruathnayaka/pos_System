@@ -1,30 +1,33 @@
-// js/model/ItemModel.js
-class ItemModel {
-    constructor() {
-        this.items = [];
-        this.nextId = 1;
-    }
+let itemArray = [];
+let itemIdCounter = 1;
 
+class ItemModel {
     saveItem(code, name, price, quantity) {
-        const newItem = new ItemDTO(this.nextId++, code, name, price, quantity);
-        this.items.push(newItem);
+        const item = { id: itemIdCounter++, code, name, price: parseFloat(price), quantity: parseInt(quantity) };
+        itemArray.push(item);
+        return item;
     }
 
     getAllItems() {
-        return this.items;
+        return itemArray;
     }
 
     updateItem(id, code, name, price, quantity) {
-        const index = this.items.findIndex(i => i.id === id);
-        if (index !== -1) {
-            this.items[index].code = code;
-            this.items[index].name = name;
-            this.items[index].price = price;
-            this.items[index].quantity = quantity;
+        const item = itemArray.find(i => i.id === id);
+        if (item) {
+            item.code = code;
+            item.name = name;
+            item.price = parseFloat(price);
+            item.quantity = parseInt(quantity);
         }
     }
 
     deleteItem(id) {
-        this.items = this.items.filter(i => i.id !== id);
+        itemArray = itemArray.filter(i => i.id !== id);
+    }
+
+    reduceQuantity(id, count) {
+        const item = itemArray.find(i => i.id === id);
+        if (item) item.quantity -= count;
     }
 }
